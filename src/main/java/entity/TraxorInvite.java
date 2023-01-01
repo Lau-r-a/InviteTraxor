@@ -11,6 +11,7 @@ public class TraxorInvite {
     private long inviterId;
 
     public TraxorInvite() {
+        // Empty constructor for Morphia
     }
 
     public TraxorInvite(String code, int uses, long inviterId) {

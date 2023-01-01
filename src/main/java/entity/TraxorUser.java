@@ -10,6 +10,7 @@ public class TraxorUser {
     private long invitedById;
 
     public TraxorUser() {
+        // Empty constructor for Morphia
     }
 
     public TraxorUser(long id, long invitedById) {

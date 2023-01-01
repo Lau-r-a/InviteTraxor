@@ -36,7 +36,7 @@ public class Traxor {
                 .login()
                 .join();
 
-        Server server = api.getServerById(1049087984256958474L).get();
+        Server server = api.getServerById(Long.parseLong(dotenv.get("SERVER_ID"))).get();
 
         TrackerFacade trackerFacade = new TrackerFacade(datastore, new InviteAPI(server));
         trackerFacade.resyncInvites();
