@@ -20,7 +20,8 @@ public class Traxor {
 
         Dotenv dotenv = Dotenv.load();
 
-        Datastore datastore = initMongo("localhost",
+        Datastore datastore = initMongo(
+                dotenv.get("MONGO_HOST"),
                 dotenv.get("MONGO_INITDB_ROOT_USERNAME"),
                 dotenv.get("MONGO_INITDB_ROOT_PASSWORD"),
                 "traxor");
