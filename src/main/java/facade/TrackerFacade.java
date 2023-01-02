@@ -49,7 +49,10 @@ public class TrackerFacade {
             Map<String, TraxorInvite> remoteInv = inviteApi.getInvites();
             //check for each local invite which one has changed
             inviteStore.getAllInvites().forEach(traxorInvite -> {
-                if (!traxorInvite.equalsUsage(remoteInv.get(traxorInvite.getCode()))) {
+                if (traxorInvite.getExpiry() < System.currentTimeMillis() / 1000) {
+                    //invite is no longer valid
+                    inviteStore.deleteInvite(traxorInvite.getCode());
+                } else if (!traxorInvite.equalsUsage(remoteInv.get(traxorInvite.getCode()))) {
                     logger.info("Invite {} has changed.", traxorInvite.getCode());
                     changedInvites.add(traxorInvite);
                 }

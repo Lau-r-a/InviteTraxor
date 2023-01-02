@@ -22,7 +22,8 @@ public class InviteAPI {
 
         for (RichInvite dcInv : discordInvites) {
             long user = dcInv.getInviter().isPresent() ? dcInv.getInviter().get().getId() : 0;
-            TraxorInvite inv = new TraxorInvite(dcInv.getCode(), dcInv.getUses(), user);
+            long expiry = dcInv.getCreationTimestamp().plusSeconds(dcInv.getMaxAgeInSeconds()).getEpochSecond();
+            TraxorInvite inv = new TraxorInvite(dcInv.getCode(), dcInv.getUses(), user, expiry);
             currentInvites.put(dcInv.getCode(), inv);
         }
 
