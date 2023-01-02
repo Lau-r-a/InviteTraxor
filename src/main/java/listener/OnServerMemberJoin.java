@@ -17,7 +17,14 @@ public class OnServerMemberJoin implements ServerMemberJoinListener {
 
     @Override
     public void onServerMemberJoin(ServerMemberJoinEvent serverMemberJoinEvent) {
-        logger.info("User joined: " + serverMemberJoinEvent.getUser().getDiscriminatedName());
-        trackerFacade.linkJoinedUser(serverMemberJoinEvent.getUser().getId());
+        final long id = serverMemberJoinEvent.getUser().getId();
+
+        if (serverMemberJoinEvent.getUser().isBot()) {
+            logger.info("Bot with id {} joined the server", id);
+            return;
+        }
+
+        logger.info("User {} with id {} joined", serverMemberJoinEvent.getUser().getDiscriminatedName(), id);
+        trackerFacade.linkJoinedUser(id);
     }
 }

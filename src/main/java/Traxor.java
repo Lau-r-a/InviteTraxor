@@ -20,10 +20,6 @@ public class Traxor {
     public static void main(String[] args) {
 
         Dotenv dotenv = Dotenv.load();
-        // Enable debug logging
-        //FallbackLoggerConfiguration.setDebug(true);
-        // Enable trace logging
-        //FallbackLoggerConfiguration.setTrace(true);
 
         Datastore datastore = initMongo("localhost",
                 dotenv.get("MONGO_INITDB_ROOT_USERNAME"),

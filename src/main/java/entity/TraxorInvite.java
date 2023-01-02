@@ -3,7 +3,6 @@ package entity;
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 
-import java.util.Date;
 
 @Entity
 public class TraxorInvite {
