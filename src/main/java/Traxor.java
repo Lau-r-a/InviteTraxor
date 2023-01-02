@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.server.Server;
-import org.javacord.api.util.logging.FallbackLoggerConfiguration;
 
 public class Traxor {
     private static final Logger logger = LogManager.getLogger(Traxor.class);
