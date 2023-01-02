@@ -6,7 +6,7 @@ RUN mvn clean package
 FROM openjdk:18-slim
 WORKDIR /app
 COPY --from=builder /app/target/*dependencies.jar /app/app.jar
-COPY .env /app/.env
+COPY example.env /app/.env
 #EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
